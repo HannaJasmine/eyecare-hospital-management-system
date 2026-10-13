@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Doctor Management | EyeCare Hospital{% endblock %}
+
+{% block content %}
+<section class="admin-shell">
+    <div class="container">
+        <div class="admin-panel">
+            <div class="admin-header">
+                <div>
+                    <span class="eyebrow">Staff Management</span>
+                    <h1>Doctor Management</h1>
+                </div>
+                <a class="btn btn-primary" href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a>
+            </div>
+
+            <div class="admin-form-card">
+                <h3>Add New Doctor</h3>
+                <form action="{{ url_for('add_doctor_route') }}" method="post" class="admin-form">
+                    <div class="field-grid">
+                        <label>
+                            Doctor Name
+                            <input type="text" name="name" placeholder="Dr. Anne Reed" required>
+                        </label>
+                        <label>
+                            Specialization
+                            <input type="text" name="specialization" placeholder="Retina" required>
+                        </label>
+                        <label>
+                            Schedule
+                            <input type="text" name="schedule" placeholder="Mon-Wed 09:00-15:00">
+                        </label>
+                        <label>
+                            Active Status
+                            <select name="is_active">
+                                <option value="1" selected>Active</option>
+                                <option value="0">Inactive</option>
+                            </select>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Doctor</button>
+                </form>
+            </div>
+
+            <div class="feature-panel">
+                {% for doctor in doctors %}
+                <div class="feature-box">
+                    <span class="feature-icon">👩‍⚕️</span>
+                    <div>
+                        <h3>{{ doctor.name }}</h3>
+                        <p>{{ doctor.specialization }} | {{ doctor.schedule or 'Schedule not provided' }}</p>
+                    </div>
+                </div>
+                {% else %}
+                <div class="feature-box empty-state">
+                    <div>
+                        <h3>No doctors yet</h3>
+                        <p>Add a physician to populate the hospital roster.</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Billing Overview | EyeCare Hospital{% endblock %}
+
+{% block content %}
+<section class="admin-shell">
+    <div class="container">
+        <div class="admin-panel">
+            <div class="admin-header">
+                <div>
+                    <span class="eyebrow">Finance</span>
+                    <h1>Billing Overview</h1>
+                </div>
+                <a class="btn btn-primary" href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a>
+            </div>
+
+            <div class="admin-grid">
+                <div class="stat-card">
+                    <span>Monthly Revenue</span>
+                    <strong>${{ '%.2f'|format(summary.monthly_revenue) }}</strong>
+                </div>
+                <div class="stat-card">
+                    <span>Outstanding</span>
+                    <strong>${{ '%.2f'|format(summary.outstanding) }}</strong>
+                </div>
+                <div class="stat-card">
+                    <span>Paid Invoices</span>
+                    <strong>{{ summary.paid_percentage }}%</strong>
+                </div>
+                <div class="stat-card">
+                    <span>Pending</span>
+                    <strong>{{ summary.pending_count }}</strong>
+                </div>
+            </div>
+
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Invoice</th>
+                        <th>Patient</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for bill in bills %}
+                    <tr>
+                        <td>{{ bill.invoice_number }}</td>
+                        <td>{{ bill.patient_name }}</td>
+                        <td>${{ '%.2f'|format(bill.amount) }}</td>
+                        <td>{{ bill.payment_status|title }}</td>
+                        <td>
+                            <form action="{{ url_for('update_bill_route', bill_id=bill.id) }}" method="post" class="inline-form">
+                                <select name="payment_status">
+                                    {% set statuses = ['pending', 'paid', 'overdue'] %}
+                                    {% for status in statuses %}
+                                        <option value="{{ status }}" {% if bill.payment_status == status %}selected{% endif %}>{{ status|title }}</option>
+                                    {% endfor %}
+                                </select>
+                                <button type="submit" class="btn btn-secondary btn-small">Update</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

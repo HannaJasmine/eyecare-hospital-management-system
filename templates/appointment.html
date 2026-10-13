@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Appointment | EyeCare Hospital{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container two-column">
+        <div>
+            <span class="eyebrow">Appointments</span>
+            <h1>Book Appointment</h1>
+            <p>Schedule a consultation with our eye specialists and let us support your vision care journey.</p>
+            <ul class="check-list">
+                <li>Fast scheduling and consultation support</li>
+                <li>Expert doctors across multiple eye-care specialties</li>
+                <li>Comfortable visits with personalized follow-up</li>
+            </ul>
+        </div>
+
+        <div class="feature-panel">
+            {% if success %}
+            <div class="feature-box" style="background: #ecfdf5; border-color: rgba(21,128,61,0.2);">
+                <span class="feature-icon">✓</span>
+                <div>
+                    <h3>Appointment confirmed</h3>
+                    <p>Thank you, {{ patient_name }}. Your {{ service }} appointment request has been received successfully.</p>
+                </div>
+            </div>
+            {% endif %}
+
+            <form class="feature-box" method="POST" action="{{ url_for('appointment') }}" style="display: grid; gap: 16px;">
+                <div>
+                    <label for="name">Full name</label>
+                    <input id="name" name="name" type="text" placeholder="Enter your name" required>
+                </div>
+                <div>
+                    <label for="email">Email address</label>
+                    <input id="email" name="email" type="email" placeholder="Enter your email" required>
+                </div>
+                <div>
+                    <label for="phone">Phone number</label>
+                    <input id="phone" name="phone" type="tel" placeholder="Enter your phone number">
+                </div>
+                <div>
+                    <label for="doctor">Preferred doctor</label>
+                    <select id="doctor" name="doctor" required>
+                        <option value="">Select a doctor</option>
+                        <option>Dr. Olivia Carter</option>
+                        <option>Dr. James Holloway</option>
+                        <option>Dr. Priya Shah</option>
+                        <option>Dr. William Ross</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="service">Service</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option>General Eye Examination</option>
+                        <option>Cataract Evaluation</option>
+                        <option>Glaucoma Assessment</option>
+                        <option>Retinal & Diabetic Care</option>
+                        <option>Pediatric Ophthalmology</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="date">Preferred date</label>
+                    <input id="date" name="date" type="date" required>
+                </div>
+                <div>
+                    <label for="message">Reason for visit</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Briefly describe your concern"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Request</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

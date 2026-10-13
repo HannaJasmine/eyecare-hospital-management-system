@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Data Analytics | EyeCare Hospital{% endblock %}
+
+{% block content %}
+<section class="admin-shell">
+    <div class="container">
+        <div class="admin-panel">
+            <div class="admin-header">
+                <div>
+                    <span class="eyebrow">Insights</span>
+                    <h1>Data Analytics</h1>
+                </div>
+                <a class="btn btn-primary" href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a>
+            </div>
+
+            <div class="admin-grid">
+                <div class="stat-card">
+                    <span>Total Patients</span>
+                    <strong>{{ stats.total_patients }}</strong>
+                </div>
+                <div class="stat-card">
+                    <span>Today’s Visits</span>
+                    <strong>{{ stats.today_appointments }}</strong>
+                </div>
+                <div class="stat-card">
+                    <span>Pending Cases</span>
+                    <strong>{{ stats.pending_appointments }}</strong>
+                </div>
+                <div class="stat-card">
+                    <span>Paid Revenue</span>
+                    <strong>${{ '%.2f'|format(stats.monthly_revenue) }}</strong>
+                </div>
+            </div>
+
+            {% if status_chart %}
+            <div class="feature-box" style="margin-top: 20px;">
+                {{ status_chart|safe }}
+            </div>
+            {% endif %}
+
+            {% if service_chart %}
+            <div class="feature-box" style="margin-top: 20px;">
+                {{ service_chart|safe }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

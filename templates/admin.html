@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard | EyeCare Hospital{% endblock %}
+
+{% block content %}
+<section class="admin-shell">
+    <div class="container">
+        <div class="admin-panel">
+            <div class="admin-header">
+                <div>
+                    <span class="eyebrow">Control Center</span>
+                    <h1>Admin Dashboard</h1>
+                </div>
+                <a class="btn btn-secondary" href="{{ url_for('admin_logout') }}">Logout</a>
+            </div>
+
+            <nav class="admin-nav" aria-label="Admin navigation">
+                <a href="{{ url_for('admin_dashboard') }}">Overview</a>
+                <a href="{{ url_for('admin_patients') }}">Patients</a>
+                <a href="{{ url_for('admin_doctors') }}">Doctors</a>
+                <a href="{{ url_for('admin_appointments') }}">Appointments</a>
+                <a href="{{ url_for('admin_billing') }}">Billing</a>
+                <a href="{{ url_for('admin_analytics') }}">Analytics</a>
+            </nav>
+
+            <div class="admin-grid">
+                <div class="stat-card">
+                    <span>Total Patients</span>
+                    <strong>{{ stats.total_patients }}</strong>
+                </div>
+                <div class="stat-card">
+                    <span>Today's Appointments</span>
+                    <strong>{{ stats.today_appointments }}</strong>
+                </div>
+                <div class="stat-card">
+                    <span>Total Doctors</span>
+                    <strong>{{ stats.total_doctors }}</strong>
+                </div>
+                <div class="stat-card">
+                    <span>Pending Appointments</span>
+                    <strong>{{ stats.pending_appointments }}</strong>
+                </div>
+            </div>
+
+            <div class="feature-panel">
+                <div class="feature-box">
+                    <span class="feature-icon">📊</span>
+                    <div>
+                        <h3>Recent patient records</h3>
+                        <ul>
+                            {% for patient in patients %}
+                            <li>{{ patient.name }} — {{ patient.email }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <span class="feature-icon">🩺</span>
+                    <div>
+                        <h3>Monthly revenue</h3>
+                        <p>Current paid revenue summary: ${{ '%.2f'|format(stats.monthly_revenue) }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

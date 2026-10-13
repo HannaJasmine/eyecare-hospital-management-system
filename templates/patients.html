@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Patient Management | EyeCare Hospital{% endblock %}
+
+{% block content %}
+<section class="admin-shell">
+    <div class="container">
+        <div class="admin-panel">
+            <div class="admin-header">
+                <div>
+                    <span class="eyebrow">Operations</span>
+                    <h1>Patient Management</h1>
+                </div>
+                <a class="btn btn-primary" href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a>
+            </div>
+
+            <div class="admin-nav">
+                <a href="{{ url_for('admin_patients') }}">Patient Records</a>
+                <a href="{{ url_for('admin_appointments') }}">Appointments</a>
+                <a href="{{ url_for('admin_billing') }}">Billing</a>
+            </div>
+
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Registered</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for patient in patients %}
+                    <tr>
+                        <td>PT-{{ patient.id }}</td>
+                        <td>
+                            <form action="{{ url_for('update_patient_route', patient_id=patient.id) }}" method="post" class="inline-form">
+                                <input type="text" name="name" value="{{ patient.name }}" required>
+                        </td>
+                        <td>
+                                <input type="email" name="email" value="{{ patient.email or '' }}">
+                        </td>
+                        <td>
+                                <input type="tel" name="phone" value="{{ patient.phone or '' }}">
+                        </td>
+                        <td>{{ patient.created_at }}</td>
+                        <td>
+                                <button type="submit" class="btn btn-secondary btn-small">Save</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

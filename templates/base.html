@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}EyeCare Hospital{% endblock %}</title>
+    <meta name="description" content="EyeCare Hospital provides advanced eye care, specialist consultations, and modern treatment solutions for every patient.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="topbar">
+        <div class="container nav-wrap">
+            <a href="{{ url_for('home') }}" class="brand" aria-label="EyeCare Hospital home">
+                <span class="brand-mark">E</span>
+                <span>
+                    <strong>EyeCare</strong>
+                    <small>Hospital</small>
+                </span>
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('services') }}">Services</a>
+                <a href="{{ url_for('doctors') }}">Doctors</a>
+                <a href="{{ url_for('appointment') }}">Appointment</a>
+                <a href="{{ url_for('contact') }}">Contact</a>
+            </nav>
+
+            <a class="btn btn-primary nav-cta" href="{{ url_for('appointment') }}">Book Appointment</a>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="container footer-grid">
+            <div>
+                <h3>EyeCare Hospital</h3>
+                <p>Advanced eye care with compassion, precision, and patient-first treatment for every stage of life.</p>
+            </div>
+            <div>
+                <h4>Visit Us</h4>
+                <ul>
+                    <li>245 Vision Avenue, New City</li>
+                    <li>Open Mon-Sat: 8:00 AM - 8:00 PM</li>
+                    <li>Emergency: +1 (800) 555-0147</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#doctors">Doctors</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>© 2026 EyeCare Hospital. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+
+{% block title %}EyeCare Hospital | Modern Eye Care{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-copy">
+            <span class="eyebrow">Advanced eye care, gently delivered</span>
+            <h1>Clear vision starts with compassionate care.</h1>
+            <p>
+                From routine eye exams to advanced retinal and surgical care, our specialists help patients see life more clearly.
+            </p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="#appointment">Book Appointment</a>
+                <a class="btn btn-secondary" href="#services">Explore Services</a>
+            </div>
+            <div class="hero-stats">
+                <div>
+                    <strong>25k+</strong>
+                    <span>Patients cared for</span>
+                </div>
+                <div>
+                    <strong>18+</strong>
+                    <span>Years of expertise</span>
+                </div>
+                <div>
+                    <strong>4.9/5</strong>
+                    <span>Patient rating</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Doctor and patient consultation illustration">
+            <div class="visual-card main-card">
+                <div class="doctor-photo"></div>
+                <div class="doctor-info">
+                    <h3>Dr. Olivia Carter</h3>
+                    <p>Senior Ophthalmologist</p>
+                </div>
+            </div>
+            <div class="visual-card badge-card">
+                <span>Same-day consultations</span>
+                <strong>98% satisfaction</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section intro" id="about">
+    <div class="container two-column">
+        <div class="section-copy">
+            <span class="eyebrow">Why patients trust us</span>
+            <h2>Why Choose EyeCare</h2>
+            <p>
+                EyeCare Hospital combines leading diagnostic technology with a compassionate, patient-centered approach.
+                We deliver preventive, corrective, and surgical solutions tailored to each individual.
+            </p>
+            <ul class="check-list">
+                <li>State-of-the-art diagnostic and surgical equipment</li>
+                <li>Board-certified specialists in every core eye discipline</li>
+                <li>Friendly support from consultation to recovery</li>
+            </ul>
+        </div>
+        <div class="feature-panel">
+            <div class="feature-box">
+                <span class="feature-icon">✓</span>
+                <div>
+                    <h3>Comprehensive care</h3>
+                    <p>From routine exams to complex retinal procedures.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="feature-icon">⏱</span>
+                <div>
+                    <h3>Fast appointments</h3>
+                    <p>Efficient scheduling and urgent care availability.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <span class="feature-icon">❤</span>
+                <div>
+                    <h3>Patient-first care</h3>
+                    <p>Personalized treatment plans designed around your goals.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section services" id="services">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">Our Services</span>
+            <h2>Focused care across all major eye conditions.</h2>
+        </div>
+
+        <div class="card-grid three-up">
+            <article class="service-card">
+                <div class="icon-bubble">👁</div>
+                <h3>Comprehensive Exams</h3>
+                <p>Detailed screenings for vision changes, eye health, and early detection.</p>
+            </article>
+            <article class="service-card">
+                <div class="icon-bubble">🔬</div>
+                <h3>Cataract Care</h3>
+                <p>Modern evaluation and treatment plans to restore clarity and comfort.</p>
+            </article>
+            <article class="service-card">
+                <div class="icon-bubble">🩺</div>
+                <h3>Glaucoma Assessment</h3>
+                <p>Early diagnosis and long-term monitoring to prevent irreversible damage.</p>
+            </article>
+            <article class="service-card">
+                <div class="icon-bubble">🧠</div>
+                <h3>Retina Care</h3>
+                <p>Advanced treatment for diabetic eye disease, retinal tears, and macular issues.</p>
+            </article>
+            <article class="service-card">
+                <div class="icon-bubble">👶</div>
+                <h3>Pediatric Vision</h3>
+                <p>Gentle, specialist-led support for children’s visual development and needs.</p>
+            </article>
+            <article class="service-card">
+                <div class="icon-bubble">✨</div>
+                <h3>Contact Lens Care</h3>
+                <p>Prescription fitting, follow-up, and vision correction solutions for daily life.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section doctors" id="doctors">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">Meet Our Specialists</span>
+            <h2>Trusted doctors, advanced expertise.</h2>
+        </div>
+
+        <div class="card-grid four-up">
+            <article class="doctor-card">
+                <div class="doctor-avatar dr-one"></div>
+                <h3>Dr. Olivia Carter</h3>
+                <p>Cornea & Refractive Surgery</p>
+            </article>
+            <article class="doctor-card">
+                <div class="doctor-avatar dr-two"></div>
+                <h3>Dr. James Holloway</h3>
+                <p>Retina & Vitreous Specialist</p>
+            </article>
+            <article class="doctor-card">
+                <div class="doctor-avatar dr-three"></div>
+                <h3>Dr. Priya Shah</h3>
+                <p>Pediatric Ophthalmology</p>
+            </article>
+            <article class="doctor-card">
+                <div class="doctor-avatar dr-four"></div>
+                <h3>Dr. William Ross</h3>
+                <p>Glaucoma & Anterior Segment</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section testimonials">
+    <div class="container">
+        <div class="section-heading">
+            <span class="eyebrow">Patient experiences</span>
+            <h2>Why patients recommend EyeCare.</h2>
+        </div>
+
+        <div class="card-grid three-up">
+            <blockquote class="testimonial-card">
+                “The team explained everything clearly and made my treatment feel completely manageable.”
+                <footer>— Amanda R.</footer>
+            </blockquote>
+            <blockquote class="testimonial-card">
+                “Professional, warm, and incredibly efficient. I felt cared for from check-in to recovery.”
+                <footer>— Daniel P.</footer>
+            </blockquote>
+            <blockquote class="testimonial-card">
+                “Their pediatric care was outstanding. My child felt comfortable and confident throughout.”
+                <footer>— Sofia M.</footer>
+            </blockquote>
+        </div>
+    </div>
+</section>
+
+<section class="section cta" id="appointment">
+    <div class="container cta-box">
+        <div>
+            <span class="eyebrow">Appointments</span>
+            <h2>Ready for your next eye-care visit?</h2>
+        </div>
+        <a class="btn btn-primary" href="#">Book Appointment</a>
+    </div>
+</section>
+{% endblock %}

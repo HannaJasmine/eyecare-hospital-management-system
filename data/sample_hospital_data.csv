@@ -1,0 +1,5 @@
+patient_name,doctor_name,service,appointment_date,status,amount
+Emma Johnson,Dr. Olivia Carter,General Eye Examination,2026-10-13,confirmed,320
+Daniel Martin,Dr. William Ross,Glaucoma Assessment,2026-10-13,pending,540
+Sophia Lee,Dr. Priya Shah,Pediatric Ophthalmology,2026-10-12,completed,410
+John Miller,Dr. James Holloway,Retinal & Diabetic Care,2026-10-14,confirmed,680
